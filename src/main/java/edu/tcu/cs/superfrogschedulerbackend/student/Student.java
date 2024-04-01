@@ -9,9 +9,7 @@ public class Student implements Serializable {
     private String address;
     private String email;
     private boolean international;
-
     private String taxID;
-
     private String ssn;
     public String getLastName() {
         return lastName;
