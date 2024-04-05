@@ -1,9 +1,12 @@
 package edu.tcu.cs.superfrogschedulerbackend.StudentPayment;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.io.Serializable;
 
 
-
+@Entity
 public class StudentPayment implements Serializable {
 
     private String studentName;
@@ -12,6 +15,7 @@ public class StudentPayment implements Serializable {
     private String address;
     private Integer amount;
     private boolean approved;
+    @Id
     private String paymentId; //this may not be needed since it's for the customer payment
     private String authorizedCodes;
     private String approverName; //i dont think this is needed, but inputting just in case
