@@ -1,4 +1,4 @@
-package edu.tcu.cs.superfrogschedulerbackend.StudentPayment;
+package edu.tcu.cs.superfrogschedulerbackend.studentpayment;
 import edu.tcu.cs.superfrogschedulerbackend.system.Result;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package edu.tcu.cs.superfrogschedulerbackend.StudentPayment;
+package edu.tcu.cs.superfrogschedulerbackend.studentpayment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
