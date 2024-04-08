@@ -1,4 +1,4 @@
-package edu.tcu.cs.superfrogschedulerbackend.SpiritDirector;
+package edu.tcu.cs.superfrogschedulerbackend.spiritdirector;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
