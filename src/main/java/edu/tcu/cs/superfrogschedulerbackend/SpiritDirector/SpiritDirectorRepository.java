@@ -1,5 +1,9 @@
 package edu.tcu.cs.superfrogschedulerbackend.SpiritDirector;
 
-public class SpiritDirectorRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface SpiritDirectorRepository extends JpaRepository<SpiritDirector, Long>{
 
 }

@@ -1,10 +1,19 @@
 package edu.tcu.cs.superfrogschedulerbackend.SpiritDirector;
 
-import org.springframework.stereotype.Repository;
+import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+@Service
+@Transactional
+public class SpiritDirectorService {
+    private final SpiritDirectorRepository spiritDirectorRepository;
 
-@Repository
-public class SpiritDirectorService extends JpaRepository<SpiritDirector, String>{
+        public SpiritDirectorService(SpiritDirectorRepository spiritDirectorRepository){
+            this.spiritDirectorRepository = spiritDirectorRepository; 
+        }
+
+        public SpiritDirector findById(String spiritDirectorId){
+            return null; 
+        }
     
 }
