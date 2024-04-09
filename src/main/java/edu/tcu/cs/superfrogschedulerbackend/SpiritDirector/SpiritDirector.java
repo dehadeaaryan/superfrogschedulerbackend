@@ -1,4 +1,4 @@
-package edu.tcu.cs.superfrogschedulerbackend.SpiritDirector;
+package edu.tcu.cs.superfrogschedulerbackend.spiritdirector;
 
 import java.io.Serializable;
 import jakarta.persistence.Entity;
