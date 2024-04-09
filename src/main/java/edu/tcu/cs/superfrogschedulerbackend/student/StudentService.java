@@ -13,7 +13,8 @@ public class StudentService {
     }
 
     public Student findById(String studentId) {
-        return null;
+        return this.studentRepository.findById(studentId)
+                .orElseThrow(() -> new StudentNotFoundException(studentId));
     }
 
 
