@@ -1,4 +1,4 @@
-package edu.tcu.cs.superfrogschedulerbackend.StudentPayment;
+package edu.tcu.cs.superfrogschedulerbackend.studentpayment;
 import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 
