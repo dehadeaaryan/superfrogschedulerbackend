@@ -1,13 +1,18 @@
 package edu.tcu.cs.superfrogschedulerbackend.request;
 
 import java.io.Serializable;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Request implements Serializable {
     @Id
     private String id;
+//    @OneToMany
+//    private List<Schedule> schedules;
     private String customerFirstName;
     private String customerLastName;
     private String phoneNumber;

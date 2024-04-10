@@ -1,8 +1,19 @@
 package edu.tcu.cs.superfrogschedulerbackend.student;
 
-import java.io.Serializable;
+import edu.tcu.cs.superfrogschedulerbackend.calendar.Calendar;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
+import java.io.Serializable;
+import java.util.List;
+
+@Entity
 public class Student implements Serializable {
+    @Id
+    private String id;
+    @OneToMany
+    private List<Calendar> calendars;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -11,6 +22,26 @@ public class Student implements Serializable {
     private boolean international;
     private String taxID;
     private String ssn;
+
+    public Student() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public List<Calendar> getCalendars() {
+        return calendars;
+    }
+
+    public void setCalendars(List<Calendar> calendars) {
+        this.calendars = calendars;
+    }
+
     public String getLastName() {
         return lastName;
     }

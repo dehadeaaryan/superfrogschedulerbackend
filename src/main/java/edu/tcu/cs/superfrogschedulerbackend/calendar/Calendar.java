@@ -1,7 +1,9 @@
 package edu.tcu.cs.superfrogschedulerbackend.calendar;
 
+import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 import java.io.Serializable;
 import java.sql.Time;
@@ -13,7 +15,8 @@ import java.util.Date;
 public class Calendar implements Serializable {
     @Id
     private String id;
-    private Integer studentId;
+    @ManyToOne
+    private Student student;
     private Date date;
     private Time time;
 
@@ -28,12 +31,12 @@ public class Calendar implements Serializable {
         this.id = id;
     }
 
-    public Integer getStudentId() {
-        return studentId;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public Date getDate() {
