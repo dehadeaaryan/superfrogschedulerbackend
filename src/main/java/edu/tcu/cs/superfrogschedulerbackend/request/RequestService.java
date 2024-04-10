@@ -13,6 +13,6 @@ public class RequestService {
     }
 
     public Request findById(String requestId) {
-        return null;
+        return this.requestRepository.findById(requestId).orElseThrow(() -> new RequestNotFoundException(requestId));
     }
 }
