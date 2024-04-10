@@ -1,4 +1,4 @@
-package edu.tcu.cs.superfrogschedulerbackend.StudentPayment;
+package edu.tcu.cs.superfrogschedulerbackend.studentpayment;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
