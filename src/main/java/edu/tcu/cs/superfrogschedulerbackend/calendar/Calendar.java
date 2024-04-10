@@ -1,9 +1,11 @@
 package edu.tcu.cs.superfrogschedulerbackend.calendar;
 
+import edu.tcu.cs.superfrogschedulerbackend.schedule.Schedule;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 import java.io.Serializable;
 import java.sql.Time;
@@ -17,6 +19,8 @@ public class Calendar implements Serializable {
     private String id;
     @ManyToOne
     private Student student;
+    @OneToOne
+    private Schedule schedule;
     private Date date;
     private Time time;
 
