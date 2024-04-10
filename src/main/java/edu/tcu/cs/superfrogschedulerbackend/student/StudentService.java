@@ -3,6 +3,8 @@ package edu.tcu.cs.superfrogschedulerbackend.student;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class StudentService {
@@ -17,5 +19,7 @@ public class StudentService {
                 .orElseThrow(() -> new StudentNotFoundException(studentId));
     }
 
-
+    public List<Student> findAll() {
+        return this.studentRepository.findAll();
+    }
 }
