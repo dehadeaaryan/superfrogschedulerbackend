@@ -22,4 +22,18 @@ public class StudentService {
     public List<Student> findAll() {
         return this.studentRepository.findAll();
     }
+
+    public Student update(Student student, String studentId) {
+    return this.studentRepository.findById(studentId)
+            .map(oldStudent -> {
+                oldStudent.setFirstName(student.getFirstName());
+                oldStudent.setLastName(student.getLastName());
+                oldStudent.setEmail(student.getEmail());
+                oldStudent.setAddress(student.getAddress());
+                oldStudent.setInternational(student.isInternational());
+                oldStudent.setPhoneNumber(student.getPhoneNumber());
+                oldStudent.setSsn(student.getSsn());
+                return studentRepository.save(oldStudent);
+            }).orElseThrow(() -> new StudentNotFoundException(studentId));
+    }
 }
