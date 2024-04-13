@@ -23,7 +23,7 @@ public class StudentService {
         return this.studentRepository.findAll();
     }
 
-    public Student update(Student student, String studentId) {
+    public Student update(String studentId,Student student) {
     return this.studentRepository.findById(studentId)
             .map(oldStudent -> {
                 oldStudent.setFirstName(student.getFirstName());
