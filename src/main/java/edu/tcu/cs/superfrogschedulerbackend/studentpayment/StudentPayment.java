@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 @Entity
 public class StudentPayment implements Serializable {
+    @Id
+    private Integer id;
     private String studentName;
     private String address;
     private Integer amount;
