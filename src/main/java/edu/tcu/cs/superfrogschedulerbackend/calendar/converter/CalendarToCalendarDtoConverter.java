@@ -1,4 +1,4 @@
-package edu.tcu.cs.superfrogschedulerbackend.calendar.comverter;
+package edu.tcu.cs.superfrogschedulerbackend.calendar.converter;
 
 import edu.tcu.cs.superfrogschedulerbackend.calendar.Calendar;
 import edu.tcu.cs.superfrogschedulerbackend.calendar.dto.CalendarDto;

@@ -13,7 +13,7 @@ public class StudentPaymentController {
         this.studentPaymentService = studentPaymentService;
     }
 
-    @GetMapping("api/v1/studentPayment/{studentPaymentId}")
+    @GetMapping("api/v1/studentpayment/{studentPaymentId}")
     public Result findStudentPaymentById(@PathVariable String studentPaymentId){
        return null;
 

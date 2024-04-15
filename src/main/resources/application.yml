@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:superfrog
+    username: sa
+    password:
+  profiles:
+    active: dev
+
+api:
+  endpoint:
+    base-url: /api/v1
+
+info:
+  app:
+    name: SuperFrogSchedulerBackend
