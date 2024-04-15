@@ -105,4 +105,5 @@ public class Student implements Serializable {
     public void setSsn(String ssn) {
         this.ssn = ssn;
     }
+
 }
