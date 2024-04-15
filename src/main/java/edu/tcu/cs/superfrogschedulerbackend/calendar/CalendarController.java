@@ -13,7 +13,7 @@ public class CalendarController {
         this.calendarService = calendarService;
     }
 
-    @GetMapping("/api/v1/requests/{calendarId}")
+    @GetMapping("/api/v1/calendar/{calendarId}")
     public Result findCalendarById(@PathVariable String calendarId) {
         String message = String.format("requests: %s", calendarId);
         return new Result(true, 200, message);

@@ -1,13 +1,12 @@
 package edu.tcu.cs.superfrogschedulerbackend.student.converter;
 
-import edu.tcu.cs.superfrogschedulerbackend.calendar.comverter.CalendarToCalendarDtoConverter;
+import edu.tcu.cs.superfrogschedulerbackend.calendar.converter.CalendarToCalendarDtoConverter;
 import edu.tcu.cs.superfrogschedulerbackend.calendar.dto.CalendarDto;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import edu.tcu.cs.superfrogschedulerbackend.student.dto.StudentDto;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import java.lang.annotation.Annotation;
 import java.util.List;
 import java.util.stream.Collectors;
 

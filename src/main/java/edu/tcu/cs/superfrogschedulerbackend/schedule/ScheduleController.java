@@ -13,7 +13,7 @@ public class ScheduleController {
         this.scheduleService = scheduleService;
     }
 
-    @GetMapping("/api/v1/requests/{scheduleId}")
+    @GetMapping("/api/v1/schedule/{scheduleId}")
     public Result findScheduleById(@PathVariable String scheduleId) {
         String message = String.format("requests: %s", scheduleId);
         return new Result(true, 200, message);
