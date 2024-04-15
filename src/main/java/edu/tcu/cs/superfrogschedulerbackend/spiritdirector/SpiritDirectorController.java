@@ -14,7 +14,7 @@ public class SpiritDirectorController {
         this.spiritDirectorService = spiritDirectorService;
     }
 
-    @GetMapping("/api/v1/requests/{spiritDirectorId}")
+    @GetMapping("/api/v1/spiritdirector/{spiritDirectorId}")
     public Result findSpiritDirectorById(@PathVariable String spiritDirectorId) {
         String message = String.format("requests: %s", spiritDirectorId);
         return new Result(true, 200, message);
