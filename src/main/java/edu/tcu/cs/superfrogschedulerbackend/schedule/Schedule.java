@@ -1,7 +1,6 @@
 package edu.tcu.cs.superfrogschedulerbackend.schedule;
-import java.io.Serializable;
 
-import edu.tcu.cs.superfrogschedulerbackend.calendar.Calendar;
+import edu.tcu.cs.superfrogschedulerbackend.studenttimes.StudentTimes;
 import edu.tcu.cs.superfrogschedulerbackend.request.Request;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,7 +12,7 @@ public class Schedule {
     private Integer scheduleId;
 
     @OneToOne
-    private Calendar calendar;
+    private StudentTimes studentTimes;
 
     @OneToOne
     private Request request;
