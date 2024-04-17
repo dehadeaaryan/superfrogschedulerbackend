@@ -1,5 +1,6 @@
 package edu.tcu.cs.superfrogschedulerbackend.request;
 
+import edu.tcu.cs.superfrogschedulerbackend.system.exception.ObjectNotFoundException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -76,7 +77,7 @@ public class RequestServiceTest {
         });
 
         // Then
-        assertThat(thrown).isInstanceOf(RequestNotFoundException.class).hasMessage("Could not find request with id 123456789");
+        assertThat(thrown).isInstanceOf(ObjectNotFoundException.class).hasMessage("Could not find request with id 123456789");
         verify(requestRepository, times(1)).findById("123456789");
     }
 }

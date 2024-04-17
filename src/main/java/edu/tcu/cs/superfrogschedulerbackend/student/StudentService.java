@@ -1,5 +1,6 @@
 package edu.tcu.cs.superfrogschedulerbackend.student;
 
+import edu.tcu.cs.superfrogschedulerbackend.system.exception.ObjectNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ public class StudentService {
 
     public Student findById(String studentId) {
         return this.studentRepository.findById(studentId)
-                .orElseThrow(() -> new StudentNotFoundException(studentId));
+                .orElseThrow(() -> new ObjectNotFoundException("student", studentId));
     }
 
     public List<Student> findAll() {
@@ -34,6 +35,6 @@ public class StudentService {
                 oldStudent.setPhoneNumber(student.getPhoneNumber());
                 oldStudent.setSsn(student.getSsn());
                 return studentRepository.save(oldStudent);
-            }).orElseThrow(() -> new StudentNotFoundException(studentId));
+            }).orElseThrow(() -> new ObjectNotFoundException("student", studentId));
     }
 }
