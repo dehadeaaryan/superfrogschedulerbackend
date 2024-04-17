@@ -1,6 +1,7 @@
 package edu.tcu.cs.superfrogschedulerbackend.request;
 
 import edu.tcu.cs.superfrogschedulerbackend.system.StatusCode;
+import edu.tcu.cs.superfrogschedulerbackend.system.exception.ObjectNotFoundException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -76,7 +77,7 @@ class RequestControllerTest {
     @Test
     void testFindRequestByIdNotFound() throws Exception {
         // Given
-        given(this.requestService.findById("123456789")).willThrow(new RequestNotFoundException("123456789"));
+        given(this.requestService.findById("123456789")).willThrow(new ObjectNotFoundException("request", "123456789"));
 
         // When and Then
         this.mockMvc.perform(get("/api/v1/requests/123456789").accept(MediaType.APPLICATION_JSON))
