@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.mockito.BDDMockito.given;
@@ -41,6 +42,9 @@ class RequestControllerTest {
         r.setCustomerFirstName("John");
         r.setCustomerLastName("Doe");
         r.setPhoneNumber("4694694699");
+        r.setEmail("someEmail");
+        r.setStartTime(new Date(0));
+        r.setDuration(1.5);
         r.setEventType("Wedding");
         r.setEventTitle("Rains of Castamere");
         r.setOrganizationName("Not an organization");
@@ -71,7 +75,26 @@ class RequestControllerTest {
                 .andExpect(jsonPath("$.flag").value(true))
                 .andExpect(jsonPath("$.code").value(StatusCode.SUCCESS))
                 .andExpect(jsonPath("$.message").value("Find One Success"))
-                .andExpect(jsonPath("$.data.id").value("123456789"));
+                .andExpect(jsonPath("$.data.id").value("123456789"))
+                .andExpect(jsonPath("$.data.customerFirstName").value("John"))
+                .andExpect(jsonPath("$.data.customerLastName").value("Doe"))
+                .andExpect(jsonPath("$.data.phoneNumber").value("4694694699"))
+                .andExpect(jsonPath("$.data.email").value("someEmail"))
+//                .andExpect(jsonPath("$.data.startTime").value(this.requests.getFirst().getStartTime().toString()))
+                .andExpect(jsonPath("$.data.duration").value(1.5))
+                .andExpect(jsonPath("$.data.eventType").value("Wedding"))
+                .andExpect(jsonPath("$.data.eventTitle").value("Rains of Castamere"))
+                .andExpect(jsonPath("$.data.organizationName").value("Not an organization"))
+                .andExpect(jsonPath("$.data.eventAddress").value("2800 S University Dr, Fort Worth, TX 76109"))
+                .andExpect(jsonPath("$.data.onCampus").value(true))
+                .andExpect(jsonPath("$.data.specialInstructions").value("None"))
+                .andExpect(jsonPath("$.data.expensesAndBenefitsToSpiritTeam").value("Members get food"))
+                .andExpect(jsonPath("$.data.otherOutsideOrganizations").value("TCU"))
+                .andExpect(jsonPath("$.data.eventDescription").value("What is a wedding?"))
+                .andExpect(jsonPath("$.data.status").value("Pending"))
+                .andExpect(jsonPath("$.data.approved").value(false))
+                .andExpect(jsonPath("$.data.paid").value(false))
+                .andExpect(jsonPath("$.data.amount").value(100.00));
     }
 
     @Test
@@ -83,7 +106,7 @@ class RequestControllerTest {
         this.mockMvc.perform(get("/api/v1/requests/123456789").accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.flag").value(false))
                 .andExpect(jsonPath("$.code").value(StatusCode.NOT_FOUND))
-                .andExpect(jsonPath("$.message").value("Could not find request with id 123456789"))
+                .andExpect(jsonPath("$.message").value("Could not find request with Id 123456789"))
                 .andExpect(jsonPath("$.data").isEmpty());
     }
 }
