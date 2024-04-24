@@ -2,6 +2,7 @@ package edu.tcu.cs.superfrogschedulerbackend.request.dto;
 
 import java.util.Date;
 
+// This is what gets sent through API
 public record RequestDto(String id,
                          String customerFirstName,
                          String customerLastName,
