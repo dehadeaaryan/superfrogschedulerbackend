@@ -5,6 +5,7 @@ import edu.tcu.cs.superfrogschedulerbackend.student.converter.StudentToStudentDt
 import edu.tcu.cs.superfrogschedulerbackend.student.dto.StudentDto;
 import edu.tcu.cs.superfrogschedulerbackend.system.Result;
 import edu.tcu.cs.superfrogschedulerbackend.system.StatusCode;
+import jakarta.validation.Valid;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
