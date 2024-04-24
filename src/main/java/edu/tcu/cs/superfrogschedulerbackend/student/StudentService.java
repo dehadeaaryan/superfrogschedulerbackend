@@ -24,7 +24,7 @@ public class StudentService {
         return this.studentRepository.findAll();
     }
 
-    public Student update(Student student, String studentId) {
+    public Student update(String studentId,Student student) {
     return this.studentRepository.findById(studentId)
             .map(oldStudent -> {
                 oldStudent.setFirstName(student.getFirstName());
@@ -36,5 +36,11 @@ public class StudentService {
                 oldStudent.setSsn(student.getSsn());
                 return studentRepository.save(oldStudent);
             }).orElseThrow(() -> new ObjectNotFoundException("student", studentId));
+    }
+
+    public void delete(String studentId) {
+        this.studentRepository.findById(studentId)
+                .orElseThrow(() -> new StudentNotFoundException(studentId));
+        this.studentRepository.deleteById(studentId);
     }
 }
