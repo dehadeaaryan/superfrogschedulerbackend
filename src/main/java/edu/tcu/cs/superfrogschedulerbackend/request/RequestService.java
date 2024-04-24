@@ -52,6 +52,7 @@ public class RequestService {
                     oldRequest.setExpensesAndBenefitsToSpiritTeam(modify.getExpensesAndBenefitsToSpiritTeam());
                     oldRequest.setOtherOutsideOrganizations(modify.getOtherOutsideOrganizations());
                     oldRequest.setEventDescription(modify.getEventDescription());
+                    oldRequest.setStatus(modify.getStatus());
                     return this.requestRepository.save(oldRequest);
                 }).orElseThrow(() -> new ObjectNotFoundException("request", requestId));
     }

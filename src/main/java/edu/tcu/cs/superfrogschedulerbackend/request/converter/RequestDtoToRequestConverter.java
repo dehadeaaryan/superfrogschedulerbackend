@@ -10,6 +10,7 @@ public class RequestDtoToRequestConverter implements Converter<RequestDto, Reque
     @Override
     public Request convert(RequestDto source) {
         Request request = new Request();
+        request.setId(source.id());
         request.setCustomerFirstName(source.customerFirstName());
         request.setCustomerLastName(source.customerLastName());
         request.setPhoneNumber(source.phoneNumber());

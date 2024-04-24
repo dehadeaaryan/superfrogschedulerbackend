@@ -2,7 +2,8 @@ package edu.tcu.cs.superfrogschedulerbackend.request.dto;
 
 import java.util.Date;
 
-public record RequestDto(String customerFirstName,
+public record RequestDto(String id,
+                         String customerFirstName,
                          String customerLastName,
                          String phoneNumber,
                          String email,
