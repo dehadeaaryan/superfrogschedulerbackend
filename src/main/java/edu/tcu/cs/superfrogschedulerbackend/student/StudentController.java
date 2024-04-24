@@ -49,5 +49,10 @@ public class StudentController {
         return new Result(true, 200, "Update Success", updatedStudentDto);
     }
 
+    @DeleteMapping
+    public Result deleteStudent(@PathVariable String studentId) {
+        this.studentService.delete(studentId);
+        return new Result(true, 200, "Delete Success");
+    }
 
 }

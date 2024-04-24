@@ -36,4 +36,10 @@ public class StudentService {
                 return studentRepository.save(oldStudent);
             }).orElseThrow(() -> new StudentNotFoundException(studentId));
     }
+
+    public void delete(String studentId) {
+        this.studentRepository.findById(studentId)
+                .orElseThrow(() -> new StudentNotFoundException(studentId));
+        this.studentRepository.deleteById(studentId);
+    }
 }
