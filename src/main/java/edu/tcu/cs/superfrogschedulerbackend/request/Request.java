@@ -1,9 +1,8 @@
 package edu.tcu.cs.superfrogschedulerbackend.request;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Date;
 
-import edu.tcu.cs.superfrogschedulerbackend.schedule.Schedule;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -12,11 +11,12 @@ import jakarta.persistence.OneToOne;
 public class Request implements Serializable {
     @Id
     private String id;
-    @OneToOne
-    private Schedule schedule;
     private String customerFirstName;
     private String customerLastName;
     private String phoneNumber;
+    private String email;
+    private Date startTime;
+    private Double duration;
     private String eventType;
     private String eventTitle;
     private String organizationName;
@@ -65,6 +65,30 @@ public class Request implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Double getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Double duration) {
+        this.duration = duration;
     }
 
     public String getEventType() {

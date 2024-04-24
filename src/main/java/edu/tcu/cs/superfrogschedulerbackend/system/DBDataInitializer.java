@@ -1,22 +1,68 @@
 package edu.tcu.cs.superfrogschedulerbackend.system;
 
+import edu.tcu.cs.superfrogschedulerbackend.request.Request;
+import edu.tcu.cs.superfrogschedulerbackend.request.RequestRepository;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import edu.tcu.cs.superfrogschedulerbackend.student.StudentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 @Component
 public class DBDataInitializer implements CommandLineRunner {
+    private final RequestRepository requestRepository;
     private final StudentRepository studentRepository;
 
-    public DBDataInitializer(StudentRepository studentRepository) {
+    public DBDataInitializer(StudentRepository studentRepository, RequestRepository requestRepository) {
+        this.requestRepository = requestRepository;
         this.studentRepository = studentRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
+        // Add Requests
+        Request r1 = createRequest(
+                "John",
+                "Doe",
+                "phoneNumber",
+                "eventType",
+                "eventTitle",
+                "organizationName",
+                "eventAddress",
+                false,
+                "specialInstructions",
+                "expensesAndBenefitsToSpiritTeam",
+                "otherOutsideOrganizations",
+                "eventDescription",
+                "status",
+                true,
+                false,
+                100.0
+        );
+        Request r2 = createRequest(
+                "Alice",
+                "Smith",
+                "555-1234",
+                "Birthday Party",
+                "Alice's Birthday",
+                "ABC Events",
+                "123 Main St",
+                true,
+                "Please bring balloons",
+                "Covering travel expenses",
+                "None",
+                "A birthday celebration for Alice",
+                "pending",
+                false,
+                false,
+                0.0
+        );
+        requestRepository.save(r1);
+        requestRepository.save(r2);
+
         Student s1 = new Student();
         s1.setId("1");
         s1.setFirstName("John");
@@ -41,5 +87,27 @@ public class DBDataInitializer implements CommandLineRunner {
         studentRepository.save(s1);
         studentRepository.save(s2);
         studentRepository.save(s3);
+    }
+
+    private Request createRequest(String firstName, String lastName, String phoneNumber, String eventType, String eventTitle, String organizationName, String eventAddress, Boolean onCampus, String specialInstructions, String expensesAndBenefitsToSpiritTeam, String otherOutsideOrganizations, String eventDescription, String status, Boolean approved, Boolean paid, Double amount) {
+        Request request = new Request();
+        request.setId(UUID.randomUUID().toString());
+        request.setCustomerFirstName(firstName);
+        request.setCustomerLastName(lastName);
+        request.setPhoneNumber(phoneNumber);
+        request.setEventType(eventType);
+        request.setEventTitle(eventTitle);
+        request.setOrganizationName(organizationName);
+        request.setEventAddress(eventAddress);
+        request.setOnCampus(onCampus);
+        request.setSpecialInstructions(specialInstructions);
+        request.setExpensesAndBenefitsToSpiritTeam(expensesAndBenefitsToSpiritTeam);
+        request.setOtherOutsideOrganizations(otherOutsideOrganizations);
+        request.setEventDescription(eventDescription);
+        request.setStatus(status);
+        request.setApproved(approved);
+        request.setPaid(paid);
+        request.setAmount(amount);
+        return request;
     }
 }

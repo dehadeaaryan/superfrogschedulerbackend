@@ -1,59 +1,60 @@
 package edu.tcu.cs.superfrogschedulerbackend.studentpayment;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.io.Serializable;
+import java.time.Period;
 
 
 @Entity
 public class StudentPayment implements Serializable {
-
-    private String studentName;
-    private String taxId;
-    private String ssn;
-    private String address;
-    private Integer amount;
-    private boolean approved;
     @Id
-    private String paymentId; //this may not be needed since it's for the customer payment
-    private String authorizedCodes; //may not be needed because what is being identified here?
-    private String approverName; //i dont think this is needed, but inputting just in case
+    //@GeneratedValue(GenerationType.AUTO) //correct this error later
+    private Integer studentPaymentId; //is this needed? forms must be identified elsewhere?
+    private String studentFirstName;
+    private String studentLastName;
+    private Integer amount; //amount to pay
+    private Period studentPaymentPeriod;
+    private boolean approved; //change the status on the calendar/student object so its set to Submitted to Payroll. Is this the best place for this?
 
     public StudentPayment() {
 
     }
 
-    public String getStudentName() {
-        return studentName;
+    public StudentPayment(Integer studentPaymentId, String studentFirstName, String studentLastName, Integer amount, Period studentPaymentPeriod, boolean approved) {
+        this.studentPaymentId = studentPaymentId;
+        this.studentFirstName = studentFirstName;
+        this.studentLastName = studentLastName;
+        this.amount = amount;
+        this.studentPaymentPeriod = studentPaymentPeriod;
+        this.approved = approved;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public Integer getStudentPaymentId() {
+        return studentPaymentId;
     }
 
-    public String getTaxId() {
-        return taxId;
+    public void setStudentPaymentId(Integer studentPaymentId) {
+        this.studentPaymentId = studentPaymentId;
     }
 
-    public void setTaxId(String taxId) {
-        this.taxId = taxId;
+    public String getStudentFirstName() {
+        return studentFirstName;
     }
 
-    public String getSsn() {
-        return ssn;
+    public void setStudentFirstName(String studentFirstName) {
+        this.studentFirstName = studentFirstName;
     }
 
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
+    public String getStudentLastName() {
+        return studentLastName;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStudentLastName(String studentLastName) {
+        this.studentLastName = studentLastName;
     }
 
     public Integer getAmount() {
@@ -64,35 +65,19 @@ public class StudentPayment implements Serializable {
         this.amount = amount;
     }
 
+    public Period getStudentPaymentPeriod() {
+        return studentPaymentPeriod;
+    }
+
+    public void setStudentPaymentPeriod(Period studentPaymentPeriod) {
+        this.studentPaymentPeriod = studentPaymentPeriod;
+    }
+
     public boolean isApproved() {
         return approved;
     }
 
     public void setApproved(boolean approved) {
         this.approved = approved;
-    }
-
-    public String getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
-    }
-
-    public String getAuthorizedCodes() {
-        return authorizedCodes;
-    }
-
-    public void setAuthorizedCodes(String authorizedCodes) {
-        this.authorizedCodes = authorizedCodes;
-    }
-
-    public String getApproverName() {
-        return approverName;
-    }
-
-    public void setApproverName(String approverName) {
-        this.approverName = approverName;
     }
 }

@@ -1,5 +1,5 @@
 package edu.tcu.cs.superfrogschedulerbackend.student.dto;
-import edu.tcu.cs.superfrogschedulerbackend.calendar.dto.CalendarDto;
+import edu.tcu.cs.superfrogschedulerbackend.studenttimes.dto.StudentTimeDto;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.util.List;
@@ -14,5 +14,5 @@ public record StudentDto(String id,
                          Boolean international,
                          String phoneNumber,
                          String address,
-                         List<CalendarDto> calendar) {
+                         List<StudentTimeDto> calendar) {
 }

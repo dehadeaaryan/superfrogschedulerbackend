@@ -1,11 +1,6 @@
-package edu.tcu.cs.superfrogschedulerbackend.calendar;
-
-import edu.tcu.cs.superfrogschedulerbackend.schedule.Schedule;
+package edu.tcu.cs.superfrogschedulerbackend.studenttimes;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.sql.Time;
@@ -14,17 +9,15 @@ import java.util.Date;
 // This is supposed to be the Spirit Calendar, which has open schedules of the students
 
 @Entity
-public class Calendar implements Serializable {
+public class StudentTimes implements Serializable {
     @Id
     private String id;
     @ManyToOne
     private Student student;
-    @OneToOne
-    private Schedule schedule;
-    private Date date;
-    private Time time;
+    private String event_day;
+    private Integer time;
 
-    public Calendar() {
+    public StudentTimes() {
     }
 
     public String getId() {
@@ -43,19 +36,11 @@ public class Calendar implements Serializable {
         this.student = student;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Time getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 }
