@@ -20,8 +20,7 @@ public class Student implements Serializable {
     private String address;
     private String email;
     private boolean international;
-    private String taxID;
-    private String ssn;
+
 
     public Student() {
     }
@@ -90,20 +89,5 @@ public class Student implements Serializable {
         this.international = international;
     }
 
-    public String getTaxID() {
-        return taxID;
-    }
-
-    public void setTaxID(String taxID) {
-        this.taxID = taxID;
-    }
-
-    public String getSsn() {
-        return ssn;
-    }
-
-    public void setSsn(String ssn) {
-        this.ssn = ssn;
-    }
 
 }
