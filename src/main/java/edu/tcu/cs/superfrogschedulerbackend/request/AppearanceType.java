@@ -14,9 +14,9 @@ public enum AppearanceType {
     PUBLICNONPROFITBEFOREGAME(200),
     PRIVATERESIDENTIALBEFOREGAME(250);
 
-    final int appearanceCost; //how much it costs for SuperFrog to appear depending on the type of event. Not final cost.
+    final int appearanceTypeCost; //how much it costs for SuperFrog to appear depending on the type of event. Not final cost.
 
     AppearanceType(int appearanceCost) {
-        this.appearanceCost = appearanceCost;
+        this.appearanceTypeCost = appearanceCost;
     }
 }
