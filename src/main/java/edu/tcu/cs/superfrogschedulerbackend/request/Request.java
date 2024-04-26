@@ -3,8 +3,10 @@ package edu.tcu.cs.superfrogschedulerbackend.request;
 import java.io.Serializable;
 import java.util.Date;
 
+import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -30,6 +32,10 @@ public class Request implements Serializable {
     private Boolean approved;
     private Boolean paid;
     private Double amount;
+
+    @ManyToOne
+    private Student assignedStudent; //field for the assigned SuperFrog Student
+
 
     public Request() {
 
@@ -193,5 +199,13 @@ public class Request implements Serializable {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public Student getAssignedStudent() {
+        return assignedStudent;
+    }
+
+    public void setAssignedStudent(Student assignedStudent) {
+        this.assignedStudent = assignedStudent;
     }
 }
