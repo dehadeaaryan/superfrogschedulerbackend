@@ -1,6 +1,7 @@
 package edu.tcu.cs.superfrogschedulerbackend.request;
 
 //this ENUM class will assign the cost of a SuperFrog appearance to the Request based on the type of appearance
+//This is both the hourly rate the customers and the superfrog students will be paid
 
 public enum AppearanceType {
 

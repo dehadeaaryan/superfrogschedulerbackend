@@ -60,7 +60,7 @@ public class RequestService {
 
     public void delete(String requestId) {
         this.requestRepository.findById(requestId)
-                .orElseThrow(() -> new ObjectNotFoundException("artifact", requestId)); //shouldnt this be request, not artifact?
+                .orElseThrow(() -> new ObjectNotFoundException("request", requestId));
         this.requestRepository.deleteById(requestId);
     }
 }
