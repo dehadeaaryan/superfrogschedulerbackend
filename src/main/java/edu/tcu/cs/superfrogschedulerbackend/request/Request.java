@@ -32,7 +32,6 @@ public class Request implements Serializable {
     private Boolean approved;
     private Boolean paid;
     private Double amount;
-
     @ManyToOne
     private Student assignedStudent; //field for the assigned SuperFrog Student
 

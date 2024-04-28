@@ -14,8 +14,8 @@ public class StudentTimes implements Serializable {
     private String id;
     @ManyToOne
     private Student student;
-    private String event_day;
-    private Integer time;
+    private String event_day;   //Please follow format "yyyy-MM-dd"
+    private String time;
 
     public StudentTimes() {
     }
@@ -36,11 +36,19 @@ public class StudentTimes implements Serializable {
         this.student = student;
     }
 
-    public Integer getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getEvent_day() {
+        return event_day;
+    }
+
+    public void setEvent_day(String event_day) {
+        this.event_day = event_day;
     }
 }
