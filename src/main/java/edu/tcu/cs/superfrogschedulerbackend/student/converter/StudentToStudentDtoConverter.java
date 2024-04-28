@@ -7,6 +7,7 @@ import edu.tcu.cs.superfrogschedulerbackend.studenttimes.converter.StudentTimeTo
 import edu.tcu.cs.superfrogschedulerbackend.studenttimes.dto.StudentTimeDto;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import edu.tcu.cs.superfrogschedulerbackend.student.dto.StudentDto;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,8 @@ import java.util.stream.Collectors;
 @Component public class StudentToStudentDtoConverter implements Converter<Student, StudentDto> {
    private final StudentTimeToStudentTimeDtoConverter studentTimeToStudentTimeDtoConverter;
     private final RequestToRequestDtoConverter completedRequestToCompletedRequestDtoConverter;
-    public StudentToStudentDtoConverter(StudentTimeToStudentTimeDtoConverter studentTimeToStudentTimeDtoConverter, RequestToRequestDtoConverter completedRequestToCompletedRequestDtoConverter) {
+
+    public StudentToStudentDtoConverter(@Lazy StudentTimeToStudentTimeDtoConverter studentTimeToStudentTimeDtoConverter, RequestToRequestDtoConverter completedRequestToCompletedRequestDtoConverter) {
         this.studentTimeToStudentTimeDtoConverter = studentTimeToStudentTimeDtoConverter;
         this.completedRequestToCompletedRequestDtoConverter = completedRequestToCompletedRequestDtoConverter;
     }

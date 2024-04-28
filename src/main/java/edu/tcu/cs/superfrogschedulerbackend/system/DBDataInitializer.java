@@ -91,10 +91,26 @@ public class DBDataInitializer implements CommandLineRunner {
         StudentTimes st1 = new StudentTimes();
         st1.setId("1");
         st1.setEvent_day("2024-01-20");
+        st1.setTime("10:00");
+
+        StudentTimes st2 = new StudentTimes();
+        st2.setId("2");
+        st2.setEvent_day("2024-02-20");
+        st2.setTime("11:00");
+
+
 
         studentRepository.save(s1);
         studentRepository.save(s2);
         studentRepository.save(s3);
+
+        st1.setStudent(s1);
+        st2.setStudent(s2);
+
+        studentTimesRepository.save(st1);
+        studentTimesRepository.save(st2);
+
+
 
 
     }

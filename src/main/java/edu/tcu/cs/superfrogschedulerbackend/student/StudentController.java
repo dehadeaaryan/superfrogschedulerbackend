@@ -55,4 +55,11 @@ public class StudentController {
         return new Result(true, 200, "Delete Success");
     }
 
+    @PostMapping
+    public Result addStudent(@Valid @RequestBody StudentDto studentDto) {
+        Student newStudent = this.studentDtoToStudent.convert(studentDto);
+        Student savedStudent = this.studentService.save(newStudent);
+        StudentDto savedStudentDto = this.studentToStudentDtoConverter.convert(savedStudent);
+        return new Result(true, 200, "Add Success", savedStudentDto);
+    }
 }

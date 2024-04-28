@@ -43,5 +43,7 @@ public class StudentService {
                 .orElseThrow(() -> new ObjectNotFoundException("student",studentId));
         this.studentRepository.deleteById(studentId);
     }
-
+    public Student save(Student student) {
+        return this.studentRepository.save(student);
+    }
 }

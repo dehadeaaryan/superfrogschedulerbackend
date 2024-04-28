@@ -40,10 +40,10 @@ public class StudentTimeToStudentTimeDtoConverter implements Converter<StudentTi
         //Convert string to date and time
 
         StudentTimeDto studentTimeDto = new StudentTimeDto(source.getId(),
-                source.getStudent() != null ? this.studentToStudentDtoConverter.convert(source.getStudent()):null,
+                source.getStudent() != null ? source.getStudent().getId() : null,
                 //Convert string to date
                 eventDate,
-                eventTime);
+                eventTime   );
         return studentTimeDto;
     }
 }

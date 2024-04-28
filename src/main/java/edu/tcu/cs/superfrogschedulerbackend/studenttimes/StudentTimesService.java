@@ -20,6 +20,7 @@ public class StudentTimesService {
 
     public StudentTimes save(StudentTimes newStudentTimes) {
 
+
         return this.studentTimesRepository.save(newStudentTimes);
     }
 
