@@ -1,5 +1,6 @@
 package edu.tcu.cs.superfrogschedulerbackend.student;
 
+import edu.tcu.cs.superfrogschedulerbackend.request.Request;
 import edu.tcu.cs.superfrogschedulerbackend.studenttimes.StudentTimes;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -20,6 +21,8 @@ public class Student implements Serializable {
     private String address;
     private String email;
     private boolean international;
+    @OneToMany(mappedBy = "student")
+    private List<Request> completedRequests;
 
 
     public Student() {
@@ -89,5 +92,18 @@ public class Student implements Serializable {
         this.international = international;
     }
 
+    public List<Request> getCompletedRequests() {
+        return completedRequests;
+    }
+
+    public void addCompletedRequest(Request completedRequests) {
+        this.completedRequests.add(completedRequests);
+        completedRequests.setAssignedStudent(this);
+        }
+
+    public void addStudentTimes(StudentTimes st) {
+        this.studentTimes.add(st);
+        st.setStudent(this);
+    }
 
 }

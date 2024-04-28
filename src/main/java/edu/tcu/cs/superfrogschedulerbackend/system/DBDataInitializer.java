@@ -4,6 +4,8 @@ import edu.tcu.cs.superfrogschedulerbackend.request.Request;
 import edu.tcu.cs.superfrogschedulerbackend.request.RequestRepository;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import edu.tcu.cs.superfrogschedulerbackend.student.StudentRepository;
+import edu.tcu.cs.superfrogschedulerbackend.studenttimes.StudentTimes;
+import edu.tcu.cs.superfrogschedulerbackend.studenttimes.StudentTimesRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,10 +17,12 @@ import java.util.UUID;
 public class DBDataInitializer implements CommandLineRunner {
     private final RequestRepository requestRepository;
     private final StudentRepository studentRepository;
+    private final StudentTimesRepository studentTimesRepository;
 
-    public DBDataInitializer(StudentRepository studentRepository, RequestRepository requestRepository) {
+    public DBDataInitializer(StudentRepository studentRepository, RequestRepository requestRepository, StudentTimesRepository studentTimesRepository) {
         this.requestRepository = requestRepository;
         this.studentRepository = studentRepository;
+        this.studentTimesRepository = studentTimesRepository;
     }
 
     @Override
@@ -84,9 +88,15 @@ public class DBDataInitializer implements CommandLineRunner {
         s3.setAddress("789 Main St");
         s3.setEmail("charlie.green@gmail.com");
 
+        StudentTimes st1 = new StudentTimes();
+        st1.setId("1");
+        st1.setEvent_day("2024-01-20");
+
         studentRepository.save(s1);
         studentRepository.save(s2);
         studentRepository.save(s3);
+
+
     }
 
     private Request createRequest(String firstName, String lastName, String phoneNumber, String eventType, String eventTitle, String organizationName, String eventAddress, Boolean onCampus, String specialInstructions, String expensesAndBenefitsToSpiritTeam, String otherOutsideOrganizations, String eventDescription, String status, Boolean approved, Boolean paid, Double amount) {
