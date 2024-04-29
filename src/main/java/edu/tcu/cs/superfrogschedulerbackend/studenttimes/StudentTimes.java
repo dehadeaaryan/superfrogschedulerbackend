@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.time.DayOfWeek;
 import java.util.Date;
 
 // This is supposed to be the Spirit Calendar, which has open schedules of the students
@@ -14,7 +15,7 @@ public class StudentTimes implements Serializable {
     private String id;
     @ManyToOne
     private Student student;
-    private String event_day;   //Please follow format "yyyy-MM-dd"
+    private DayOfWeek event_day;   //Please follow format "yyyy-MM-dd" -fix = as monday, tuesday, ...
     private String time;
 
     public StudentTimes() {
@@ -44,11 +45,11 @@ public class StudentTimes implements Serializable {
         this.time = time;
     }
 
-    public String getEvent_day() {
+    public DayOfWeek getEvent_day() {
         return event_day;
     }
 
-    public void setEvent_day(String event_day) {
+    public void setEvent_day(DayOfWeek event_day) {
         this.event_day = event_day;
     }
 }

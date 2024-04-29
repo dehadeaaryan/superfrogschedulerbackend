@@ -4,12 +4,13 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 import java.sql.Time;
+import java.time.DayOfWeek;
 import java.util.Date;
 
 public record StudentTimeDto(String id,
                              @NotEmpty(message = "student is required.")
                           String studentId,
                              @NotNull(message = "date is required.")
-                          Date date,
-                             Time time) {
+                             String day,
+                             String time) {
 }
