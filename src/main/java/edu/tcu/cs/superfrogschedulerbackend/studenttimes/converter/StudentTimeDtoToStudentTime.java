@@ -7,7 +7,12 @@ import edu.tcu.cs.superfrogschedulerbackend.studenttimes.dto.StudentTimeDto;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.time.DayOfWeek;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.Optional;
+
+import static java.util.Locale.forLanguageTag;
 
 @Component
 public class StudentTimeDtoToStudentTime implements Converter<StudentTimeDto, StudentTimes> {
@@ -22,8 +27,9 @@ public class StudentTimeDtoToStudentTime implements Converter<StudentTimeDto, St
     public StudentTimes convert(StudentTimeDto source) {
         StudentTimes studentTimes = new StudentTimes();
         studentTimes.setId(source.id());
-        studentTimes.setTime(source.time().toString());
-        studentTimes.setEvent_day(source.date().toString());
+        studentTimes.setTime(source.time());
+        TemporalAccessor accessor = DateTimeFormatter.ofPattern("EEEE", forLanguageTag("en")).parse(source.day());
+        studentTimes.setEvent_day(DayOfWeek.from(accessor));
         Optional<Student> student = studentRepository.findById(source.studentId());
         student.ifPresent(studentTimes::setStudent);
         return studentTimes;
