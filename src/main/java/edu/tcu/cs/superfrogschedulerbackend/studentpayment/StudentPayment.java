@@ -13,10 +13,10 @@ import java.time.Period;
 public class StudentPayment implements Serializable {
     @Id
     //@GeneratedValue(GenerationType.AUTO) //correct this error later
-    private Integer studentPaymentId; //is this needed? forms must be identified elsewhere?
+
     private String studentFirstName;
     private String studentLastName;
-    private Integer amount; //amount to pay
+    private Integer amount; //amount to pay student and charge customer
     private Period studentPaymentPeriod;
     private boolean approved; //change the status on the calendar/student object so its set to Submitted to Payroll. Is this the best place for this?
 
@@ -25,20 +25,11 @@ public class StudentPayment implements Serializable {
     }
 
     public StudentPayment(Integer studentPaymentId, String studentFirstName, String studentLastName, Integer amount, Period studentPaymentPeriod, boolean approved) {
-        this.studentPaymentId = studentPaymentId;
         this.studentFirstName = studentFirstName;
         this.studentLastName = studentLastName;
         this.amount = amount;
         this.studentPaymentPeriod = studentPaymentPeriod;
         this.approved = approved;
-    }
-
-    public Integer getStudentPaymentId() {
-        return studentPaymentId;
-    }
-
-    public void setStudentPaymentId(Integer studentPaymentId) {
-        this.studentPaymentId = studentPaymentId;
     }
 
     public String getStudentFirstName() {
