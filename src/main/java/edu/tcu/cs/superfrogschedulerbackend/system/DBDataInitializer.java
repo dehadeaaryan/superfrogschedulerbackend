@@ -98,6 +98,7 @@ public class DBDataInitializer implements CommandLineRunner {
         st2.setId("2");
         st2.setEvent_day(DayOfWeek.FRIDAY);
         st2.setTime("11:00");
+        // changed this
 
 
 
