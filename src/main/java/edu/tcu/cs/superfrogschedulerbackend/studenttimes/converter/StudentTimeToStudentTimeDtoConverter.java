@@ -29,21 +29,25 @@ public class StudentTimeToStudentTimeDtoConverter implements Converter<StudentTi
         Date eventDate = null;
         Time eventTime = null;
 
-        try {
-            //Parse Date and Time
-            eventDate = dateParser.parse(source.getEvent_day());
-            java.util.Date parsedTime = timeParser.parse(source.getTime());
-            eventTime = new Time(parsedTime.getTime());
-        } catch (ParseException e) {
-        }
+//        try {
+//            //Parse Date and Time
+//            eventDate = dateParser.parse(source.getEvent_day());
+//            java.util.Date parsedTime = timeParser.parse(source.getTime());
+//            eventTime = new Time(parsedTime.getTime());
+//        } catch (ParseException e) {
+//        }
 
-        //Convert string to date and time
+//
+//
+//        //Convert string to date and time
+//
+//        StudentTimeDto studentTimeDto = new StudentTimeDto(source.getId(),
+//                source.getStudent() != null ? source.getStudent().getId() : null,
+//                //Convert string to date
+//                eventDate,
+//                eventTime   );
 
-        StudentTimeDto studentTimeDto = new StudentTimeDto(source.getId(),
-                source.getStudent() != null ? source.getStudent().getId() : null,
-                //Convert string to date
-                eventDate,
-                eventTime   );
+        StudentTimeDto studentTimeDto = new StudentTimeDto(source.getId(), source.getStudent() != null ? source.getStudent().getId() : null, source.getEvent_day().toString(), source.getTime());
         return studentTimeDto;
     }
 }
