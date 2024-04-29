@@ -18,7 +18,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
+    
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
@@ -33,7 +33,6 @@ public class SecurityConfig {
 
 	
     @Bean
-    @Description("In memory Userdetails service registered since DB doesn't have user table ")
     public UserDetailsService users() {
         // The builder will ensure the passwords are encoded before saving in memory
         UserDetails user = User.builder()
