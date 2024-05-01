@@ -1,5 +1,6 @@
 package edu.tcu.cs.superfrogschedulerbackend.studentpayment;
 import edu.tcu.cs.superfrogschedulerbackend.request.Request;
+import edu.tcu.cs.superfrogschedulerbackend.request.RequestRepository;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import edu.tcu.cs.superfrogschedulerbackend.system.Result;
 import edu.tcu.cs.superfrogschedulerbackend.system.StatusCode;
@@ -18,25 +19,25 @@ import java.util.List;
 public class StudentPaymentController {
 
     private final StudentPaymentService studentPaymentService;
-    private Student student;
-    private Request request;
+    private final RequestRepository requestRepository;
+
 
     //injecting service via constructor
-    public StudentPaymentController(StudentPaymentService studentPaymentService) {
+    public StudentPaymentController(StudentPaymentService studentPaymentService, RequestRepository requestRepository) {
         this.studentPaymentService = studentPaymentService;
+        this.requestRepository = requestRepository;
     }
 
-
-    @PostMapping("api/v1/studentpaymentforms")
-    public Result generateStudentPaymentForms(@RequestBody String requestId) {
-        //is this supposed to return just one ID or a list of them?
-        Integer studentIds = student.getId();
+    @PostMapping("api/studentpaymentform")
+    public Result generateStudentPaymentForms(@RequestBody Request request) {
+        //get the list of Requests
+        List<Request> completedRequestsList = this.requestRepository.findByStatusCompleted("Completed");
 
         //get the payment period for a student
         Double studentPaymentPeriod = request.getDuration(); //this is the time elapsed for the event
 
         //generate a payment forms
-        List<StudentPayment> paymentForms = this.studentPaymentService.generateStudentPaymentForms(studentIds, studentPaymentPeriod); //continue working on this method.
+        List<StudentPayment> paymentForms = this.studentPaymentService.generateStudentPaymentForm(completedRequestsList, studentPaymentPeriod); //continue working on this method. maybe it should accept the final map with completed requets.
 
         return new Result(true, StatusCode.SUCCESS, "Student payment forms generated successfully.");
 

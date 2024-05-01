@@ -14,13 +14,13 @@ import static jakarta.persistence.GenerationType.AUTO;
 @Entity
 public class StudentPayment implements Serializable {
     @Id
-    @GeneratedValue(AUTO)
+    @GeneratedValue(strategy = AUTO)
     private Integer studentPaymentFormId; //unique ids for the forms
     private String studentFirstName;
     private String studentLastName;
     private Integer amount; //final amount to pay student and charge customer
     private Period studentPaymentPeriod; //from student times or what?
-    //need the student ID so I can uniquely identify them. From Student
+
 
     public StudentPayment() {
 
