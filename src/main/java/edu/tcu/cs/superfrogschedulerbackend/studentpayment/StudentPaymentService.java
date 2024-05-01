@@ -33,7 +33,7 @@ public class StudentPaymentService {
     //generating student payment forms
     public List<StudentPayment> generateStudentPaymentForms(List<Integer> completedRequestList, Double studentPaymentPeriod) {
         //receiving completed Requests
-        List<Request> completedRequests = this.requestRepository.findByStatusCompleted(listOfRequests);
+        List<Request> completedRequests = this.requestRepository.findByStatusCompleted(listOfCompletedRequests);
 
         Map<Student, List<Request>> studentRequestMap = groupRequestsByStudent(completedRequests);
 
