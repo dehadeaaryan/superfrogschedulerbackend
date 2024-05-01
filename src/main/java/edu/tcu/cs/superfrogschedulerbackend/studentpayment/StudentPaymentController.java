@@ -36,7 +36,7 @@ public class StudentPaymentController {
         Double studentPaymentPeriod = request.getDuration(); //this is the time elapsed for the event
 
         //generate a payment forms
-        List<StudentPayment> paymentForms = this.studentPaymentService.generateStudentPaymentForms(studentIds, studentPaymentPeriod);
+        List<StudentPayment> paymentForms = this.studentPaymentService.generateStudentPaymentForms(studentIds, studentPaymentPeriod); //continue working on this method.
 
         return new Result(true, StatusCode.SUCCESS, "Student payment forms generated successfully."); //create StatusCode package
 
