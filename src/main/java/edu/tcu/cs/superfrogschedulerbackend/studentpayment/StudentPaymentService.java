@@ -65,10 +65,11 @@ public class StudentPaymentService {
 
             // Call the payment calculation method for the student and their completed requests
             // and create a payment form
-            StudentPayment paymentForm = student.calculatePayment(requests, studentPaymentPeriod);
-
+            //////////////////////////////////////////////////////////
+            //UNCOMMENT WHEN DONE:
+            // StudentPayment paymentForm = student.calculatePayment(requests, studentPaymentPeriod);
             // Add the payment form to the list
-            paymentForms.add(paymentForm);
+            //paymentForms.add(paymentForm);
 
         }
         return this.studentPaymentRepository.saveAll(paymentForms); //save them all
