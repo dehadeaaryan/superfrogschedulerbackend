@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 public class Student implements Serializable {
     @Id
-    private String id;
+    private Integer id;
     @OneToMany(mappedBy = "student")
     private List<StudentTimes> studentTimes;
     private String firstName;
@@ -29,11 +29,11 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
