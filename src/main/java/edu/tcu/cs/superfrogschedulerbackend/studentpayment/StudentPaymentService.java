@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import jakarta.transaction.Transactional;
 
 import java.time.Period;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -30,9 +31,9 @@ public class StudentPaymentService {
     //result will be a map with key-value pairs of students and how much to pay them
 
     //generating student payment forms
-    public List<StudentPayment> generateStudentPaymentForms(List<String> completedRequestList, Period studentPaymentPeriod) { //String of Request Ids and Period
+    public List<StudentPayment> generateStudentPaymentForms(List<Integer> completedRequestList, Double studentPaymentPeriod) {
         //receiving completed Requests
-        List<Request> completedRequests = this.requestRepository.findByStatusEqualsCompleted(listOfRequests);
+        List<Request> completedRequests = this.requestRepository.findByStatusCompleted(listOfRequests);
 
         Map<Student, List<Request>> studentRequestMap = groupRequestsByStudent(completedRequests);
 
