@@ -17,7 +17,6 @@ public class StudentPaymentService {
     }
 
     //retrieving students from Request
-
     //make an empty map
     //using a for loop, iterate list of requests and put them in according to the students thethered the requests (students as keys)
     //resulting map will be a key-value pair with unique students and a list of their completed requests

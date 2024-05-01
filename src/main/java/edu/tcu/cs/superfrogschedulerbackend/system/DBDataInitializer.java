@@ -9,6 +9,7 @@ import edu.tcu.cs.superfrogschedulerbackend.studenttimes.StudentTimesRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -90,13 +91,14 @@ public class DBDataInitializer implements CommandLineRunner {
 
         StudentTimes st1 = new StudentTimes();
         st1.setId("1");
-        st1.setEvent_day("2024-01-20");
+        st1.setEvent_day(DayOfWeek.MONDAY);
         st1.setTime("10:00");
 
         StudentTimes st2 = new StudentTimes();
         st2.setId("2");
-        st2.setEvent_day("2024-02-20");
+        st2.setEvent_day(DayOfWeek.FRIDAY);
         st2.setTime("11:00");
+        // changed this
 
 
 
