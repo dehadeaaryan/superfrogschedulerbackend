@@ -3,10 +3,6 @@ import edu.tcu.cs.superfrogschedulerbackend.request.Request;
 import edu.tcu.cs.superfrogschedulerbackend.request.RequestRepository;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import org.springframework.stereotype.Service;
-import jakarta.transaction.Transactional;
-
-import java.time.Period;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -33,7 +29,7 @@ public class StudentPaymentService {
     //generating student payment forms
     public List<StudentPayment> generateStudentPaymentForms(List<Integer> completedRequestList, Double studentPaymentPeriod) {
         //receiving completed Requests
-        List<Request> completedRequests = this.requestRepository.findByStatusCompleted(listOfCompletedRequests);
+        List<Request> completedRequests = this.requestRepository.findByStatusCompleted("Completed");
 
         Map<Student, List<Request>> studentRequestMap = groupRequestsByStudent(completedRequests);
 
