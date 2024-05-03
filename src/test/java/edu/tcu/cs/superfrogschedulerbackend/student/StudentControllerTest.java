@@ -34,7 +34,7 @@ public class StudentControllerTest {
     void setUp() {
             this.students = new ArrayList<>();
             Student s1 = new Student();
-            s1.setId("1");
+            s1.setId(1);
             s1.setFirstName("John");
             s1.setLastName("Smith");
             s1.setAddress("123 Main St");
@@ -42,7 +42,7 @@ public class StudentControllerTest {
             this.students.add(s1);
 
             Student s2 = new Student();
-            s2.setId("2");
+            s2.setId(2);
             s2.setFirstName("Michael");
             s2.setLastName("Nguyen");
             s2.setAddress("456 Main St");
@@ -50,7 +50,7 @@ public class StudentControllerTest {
             this.students.add(s2);
 
             Student s3 = new Student();
-            s3.setId("3");
+            s3.setId(3);
             s3.setFirstName("Charlie");
             s3.setLastName("Green");
             s3.setAddress("789 Main St");
