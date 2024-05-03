@@ -31,7 +31,7 @@ public class StudentPaymentController {
     @PostMapping("api/studentpaymentform")
     public Result generateStudentPaymentForms(@RequestBody Request request) {
         //get the list of Requests
-        List<Request> completedRequestsList = this.requestRepository.findByStatusCompleted("Completed");
+        List<Request> completedRequestsList = this.requestRepository.findByStatus("Completed");
 
         //get the payment period for a student
         Double studentPaymentPeriod = request.getDuration(); //this is the time elapsed for the event

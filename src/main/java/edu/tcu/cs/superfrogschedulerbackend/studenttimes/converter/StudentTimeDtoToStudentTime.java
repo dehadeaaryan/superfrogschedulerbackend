@@ -30,7 +30,7 @@ public class StudentTimeDtoToStudentTime implements Converter<StudentTimeDto, St
         studentTimes.setTime(source.time());
         TemporalAccessor accessor = DateTimeFormatter.ofPattern("EEEE", forLanguageTag("en")).parse(source.day());
         studentTimes.setEvent_day(DayOfWeek.from(accessor));
-        Optional<Student> student = studentRepository.findById(source.studentId());
+        Optional<Student> student = studentRepository.findById(source.studentId().toString());
         student.ifPresent(studentTimes::setStudent);
         return studentTimes;
     }
