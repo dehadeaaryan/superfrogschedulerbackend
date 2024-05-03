@@ -1,6 +1,9 @@
 package edu.tcu.cs.superfrogschedulerbackend.studentpayment;
+import edu.tcu.cs.superfrogschedulerbackend.request.Request;
+import edu.tcu.cs.superfrogschedulerbackend.request.RequestRepository;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import edu.tcu.cs.superfrogschedulerbackend.system.Result;
+import edu.tcu.cs.superfrogschedulerbackend.system.StatusCode;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,25 +19,27 @@ import java.util.List;
 public class StudentPaymentController {
 
     private final StudentPaymentService studentPaymentService;
+    private final RequestRepository requestRepository;
+
 
     //injecting service via constructor
-    public StudentPaymentController(StudentPaymentService studentPaymentService) {
+    public StudentPaymentController(StudentPaymentService studentPaymentService, RequestRepository requestRepository) {
         this.studentPaymentService = studentPaymentService;
+        this.requestRepository = requestRepository;
     }
 
+    @PostMapping("api/studentpaymentform")
+    public Result generateStudentPaymentForms(@RequestBody Request request) {
+        //get the list of Requests
+        List<Request> completedRequestsList = this.requestRepository.findByStatusCompleted("Completed");
 
-    @PostMapping("api/v1/studentpaymentforms")
-    public Result generateStudentPaymentForms(@RequestBody String requestId) {
-        //get a list of studentIds using getId() method
-        List<Integer> studentIds = student.getId();
+        //get the payment period for a student
+        Double studentPaymentPeriod = request.getDuration(); //this is the time elapsed for the event
 
-        //get the payment period for each student
-        Date studentPaymentPeriod = request.getStartTime; //should this and the Request one be changed to Period?
+        //generate a payment forms
+        List<StudentPayment> paymentForms = this.studentPaymentService.generateStudentPaymentForm(completedRequestsList, studentPaymentPeriod); //continue working on this method. maybe it should accept the final map with completed requets.
 
-        //generate the payment forms (calculate final costs)
-        List<StudentPayment> paymentForms = this.studentPaymentService.generateStudentPaymentForms(studentIds, studentPaymentPeriod); //we need to decide on a type: Date or Period?
-
-        return new Result(true, HttpStatusCode.SUCCESS, "Student payment forms generated successfully."); //create StatusCode package
+        return new Result(true, StatusCode.SUCCESS, "Student payment forms generated successfully.");
 
     }
 }
