@@ -5,6 +5,8 @@ spring:
     password:
   profiles:
     active: dev
+  jpa:
+    show-sql: false
 
 api:
   endpoint:
@@ -13,3 +15,5 @@ api:
 info:
   app:
     name: SuperFrogSchedulerBackend
+server:
+  port: 80
