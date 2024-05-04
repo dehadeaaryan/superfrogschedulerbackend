@@ -28,7 +28,7 @@ public class StudentPaymentController {
         this.requestRepository = requestRepository;
     }
 
-    @PostMapping("api/studentpaymentform")
+    @PostMapping("api/v1/studentpaymentform")
     public Result generateStudentPaymentForms(@RequestBody Request request) {
         //get the list of Requests
         List<Request> completedRequestsList = this.requestRepository.findByStatus("Completed");
