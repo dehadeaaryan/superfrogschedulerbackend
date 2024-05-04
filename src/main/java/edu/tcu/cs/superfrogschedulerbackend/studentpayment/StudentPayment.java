@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 
 import java.io.Serializable;
 import java.time.Period;
+import java.util.Date;
 
 import static jakarta.persistence.GenerationType.AUTO;
 
@@ -19,34 +20,57 @@ public class StudentPayment implements Serializable {
     private String studentFirstName;
     private String studentLastName;
     private Integer amount; //final amount to pay student and charge customer
-    private Period studentPaymentPeriod; //from student times or what?
+    private Date studentPaymentPeriod; //from student times or what?
 
 
     public StudentPayment() {
 
     }
 
-    public StudentPayment(Integer studentPaymentId, String studentFirstName, String studentLastName, Integer amount, Period studentPaymentPeriod, boolean approved) {
+    public StudentPayment(Integer studentPaymentId, String studentFirstName, String studentLastName, Integer amount, Date studentPaymentPeriod, boolean approved) {
         this.studentFirstName = studentFirstName;
         this.studentLastName = studentLastName;
         this.amount = amount;
         this.studentPaymentPeriod = studentPaymentPeriod;
     }
 
+    public Integer getStudentPaymentFormId() {
+        return studentPaymentFormId;
+    }
+
+    public void setStudentPaymentFormId(Integer studentPaymentFormId) {
+        this.studentPaymentFormId = studentPaymentFormId;
+    }
+
     public String getStudentFirstName() {
         return studentFirstName;
+    }
+
+    public void setStudentFirstName(String studentFirstName) {
+        this.studentFirstName = studentFirstName;
     }
 
     public String getStudentLastName() {
         return studentLastName;
     }
 
+    public void setStudentLastName(String studentLastName) {
+        this.studentLastName = studentLastName;
+    }
+
     public Integer getAmount() {
         return amount;
     }
 
-    public Period getStudentPaymentPeriod() {
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public Date getStudentPaymentPeriod() {
         return studentPaymentPeriod;
     }
 
+    public void setStudentPaymentPeriod(Date studentPaymentPeriod) {
+        this.studentPaymentPeriod = studentPaymentPeriod;
+    }
 }
