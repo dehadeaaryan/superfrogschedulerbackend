@@ -65,8 +65,7 @@ public class DBDataInitializer implements CommandLineRunner {
                 false,
                 0.0
         );
-        requestRepository.save(r1);
-        requestRepository.save(r2);
+
 
         Student s1 = new Student();
         s1.setId(1);
@@ -109,9 +108,13 @@ public class DBDataInitializer implements CommandLineRunner {
         st1.setStudent(s1);
         st2.setStudent(s2);
 
+        r1.setAssignedStudent(s1);
+        r2.setAssignedStudent(s1);
+
         studentTimesRepository.save(st1);
         studentTimesRepository.save(st2);
-
+        requestRepository.save(r1);
+        requestRepository.save(r2);
 
 
 

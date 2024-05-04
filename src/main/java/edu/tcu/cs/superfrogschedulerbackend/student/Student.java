@@ -23,7 +23,7 @@ public class Student implements Serializable {
     private String address;
     private String email;
     private boolean international;
-    @OneToMany(mappedBy = "assignedStudent")
+    @OneToMany(mappedBy = "assignedStudent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Request> completedRequests = new ArrayList<>();
 
 
@@ -99,9 +99,6 @@ public class Student implements Serializable {
     }
 
     public void addCompletedRequest(Request completedRequests) {
-        if (this.completedRequests == null) {
-            this.completedRequests = new ArrayList<>();
-        }
         this.completedRequests.add(completedRequests);
         completedRequests.setAssignedStudent(this);
         }
