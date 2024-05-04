@@ -69,21 +69,21 @@ public class DBDataInitializer implements CommandLineRunner {
         requestRepository.save(r2);
 
         Student s1 = new Student();
-        s1.setId("1");
+        s1.setId(1);
         s1.setFirstName("John");
         s1.setLastName("Smith");
         s1.setAddress("123 Main St");
         s1.setEmail("john.smith@gmail.com");
 
         Student s2 = new Student();
-        s2.setId("2");
+        s2.setId(2);
         s2.setFirstName("Michael");
         s2.setLastName("Nguyen");
         s2.setAddress("456 Main St");
         s2.setEmail("michael.nguyen@gmail.com");
 
         Student s3 = new Student();
-        s3.setId("3");
+        s3.setId(3);
         s3.setFirstName("Charlie");
         s3.setLastName("Green");
         s3.setAddress("789 Main St");

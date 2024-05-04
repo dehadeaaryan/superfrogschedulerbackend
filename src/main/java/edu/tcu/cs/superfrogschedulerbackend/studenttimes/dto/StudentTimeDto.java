@@ -9,7 +9,7 @@ import java.util.Date;
 
 public record StudentTimeDto(String id,
                              @NotEmpty(message = "student is required.")
-                          String studentId,
+                          Integer studentId,
                              @NotNull(message = "date is required.")
                              String day,
                              String time) {

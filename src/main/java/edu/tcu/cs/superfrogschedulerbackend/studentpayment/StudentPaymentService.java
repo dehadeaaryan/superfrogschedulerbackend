@@ -28,7 +28,7 @@ public class StudentPaymentService {
 
     //grouping students with their completed requests
     public Map<Student, List<Request>> groupStudentsWithCompletedRequests(List<Request> completedRequests) {
-        List<Request> completedRequestList = this.requestRepository.findByStatusCompleted("Completed"); //list of completed Requests
+        List<Request> completedRequestList = this.requestRepository.findByStatus("Completed"); //list of completed Requests
 
         //make an empty Hash map. What will eventually be returned
         Map<Student, List<Request>> studentMapWithCompletedRequests = new HashMap<>();
@@ -47,7 +47,7 @@ public class StudentPaymentService {
 
     //generate payment forms
     public List<StudentPayment> generateStudentPaymentForm(List<Request> appearanceRequestList, Double studentPaymentPeriod){ //of type Period or Double or Date?
-        List<Request> listOfCompletedRequests = this.requestRepository.findByStatusCompleted("Completed");
+        List<Request> listOfCompletedRequests = this.requestRepository.findByStatus("Completed");
 
         // Group completed requests by student
         Map<Student, List<Request>> studentRequestsMap = groupStudentsWithCompletedRequests(listOfCompletedRequests);

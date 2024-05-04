@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 import java.util.List;
 
-public record StudentDto(String id,
+public record StudentDto(Integer id,
                          @NotEmpty(message = "firstName is required.")
                          String firstName,
                          @NotEmpty(message = "lastName is required.")

@@ -11,8 +11,10 @@ import java.util.List;
 @Repository
 public interface RequestRepository extends JpaRepository<Request, String>, JpaSpecificationExecutor<Request> {
     //define a query method that will return completed Requests.
-
     List<Request> findByStatusCompleted(String status);
     List<Student> findBySuperFrogStudent(String studentId);
     List<Request> findByRequestNumber(Request id);
+    List<Request> findByStatus(String status);
+    List<Request> findByAssignedStudent(Student assignedStudent);
+    List<Request> findById(Request id);
 }
