@@ -81,8 +81,9 @@ class StudentPaymentServiceTest {
         r.setAssignedStudent(s1);
 //        this.requests.add(r);
 
-        given(requestRepository.findByStatusCompleted("Completed").willReturn(r));
-        given(requestRepository.findBySuperFrogStudent(1).willReturn(s1));
+        //Mocking the behaviour of the requestRepository
+        given(requestRepository.findByStatus("Completed")).willReturn(requestList);
+
 
         //When - Act on the target behavior. When steps should cover the method to be tested
         studentPaymentService.groupStudentsWithCompletedRequests(requestList);
