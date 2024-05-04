@@ -3,10 +3,7 @@ import edu.tcu.cs.superfrogschedulerbackend.request.Request;
 import edu.tcu.cs.superfrogschedulerbackend.request.RequestRepository;
 import edu.tcu.cs.superfrogschedulerbackend.student.Student;
 import org.springframework.stereotype.Service;
-
-import java.time.Period;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class StudentPaymentService {
@@ -21,12 +18,10 @@ public class StudentPaymentService {
     }
 
     /**
-     * Group the given requests by SuperFrogStudent who has finished this request.
-     * The result is a Map<SuperFrogStudent, List<SuperFrogAppearanceRequest>>.
-     * For example:
+     * Group the given requests by Student who complete it.
+     * The result is a Map<Student, List<Request>> which is fed into the next method
      *  John -> request 5, request 6, request 12
      *  Tim -> request 1
-     *  Carl -> request 22
      *  completedRequests is a list of completed requests
      *  it will return A map that connects the student to their requests
      */
