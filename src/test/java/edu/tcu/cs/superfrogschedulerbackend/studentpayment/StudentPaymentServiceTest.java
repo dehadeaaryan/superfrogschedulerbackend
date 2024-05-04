@@ -87,12 +87,15 @@ class StudentPaymentServiceTest {
         //When - Act on the target behavior. When steps should cover the method to be tested
         studentPaymentService.groupStudentsWithCompletedRequests(requestList);
         //Then - Assert expected outcomes.
-       // assertThat(paymentForm.get)
+        //assertThat(studentMapWithCompletedRequests.getId()).isEqualTo(s1.getId()); this doesn't seem to be the same syntax for this project
+        //since we are returning a map
     }
 
     @Test
     void generateStudentPaymentForm() {
         //Given
+        given()
+
 
         //When
 
