@@ -23,7 +23,7 @@ public class Student implements Serializable {
     private String email;
     private boolean international;
     @OneToMany(mappedBy = "assignedStudent")
-    private List<Request> completedRequests;
+    private List<Request> completedRequests = new ArrayList<>();
 
 
     public Student() {

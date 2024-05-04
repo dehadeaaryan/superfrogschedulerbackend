@@ -3,8 +3,11 @@ spring:
     url: jdbc:h2:mem:superfrog
     username: sa
     password:
+      driver-class-name: org.h2.Driver
   profiles:
     active: dev
+  jpa:
+    show-sql: false
 
 api:
   endpoint:
@@ -13,3 +16,5 @@ api:
 info:
   app:
     name: SuperFrogSchedulerBackend
+server:
+  port: 8080

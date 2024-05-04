@@ -7,29 +7,39 @@ import jakarta.persistence.Id;
 
 import java.io.Serializable;
 import java.time.Period;
+import java.util.Date;
+
+import static jakarta.persistence.GenerationType.AUTO;
 
 
 @Entity
 public class StudentPayment implements Serializable {
     @Id
-    //@GeneratedValue(GenerationType.AUTO) //correct this error later
-
+    @GeneratedValue(strategy = AUTO)
+    private Integer studentPaymentFormId; //unique ids for the forms
     private String studentFirstName;
     private String studentLastName;
-    private Integer amount; //amount to pay student and charge customer
-    private Period studentPaymentPeriod;
-    private boolean approved; //change the status on the calendar/student object so its set to Submitted to Payroll. Is this the best place for this?
+    private Integer amount; //final amount to pay student and charge customer
+    private Date studentPaymentPeriod; //from student times or what?
+
 
     public StudentPayment() {
 
     }
 
-    public StudentPayment(Integer studentPaymentId, String studentFirstName, String studentLastName, Integer amount, Period studentPaymentPeriod, boolean approved) {
+    public StudentPayment(Integer studentPaymentId, String studentFirstName, String studentLastName, Integer amount, Date studentPaymentPeriod, boolean approved) {
         this.studentFirstName = studentFirstName;
         this.studentLastName = studentLastName;
         this.amount = amount;
         this.studentPaymentPeriod = studentPaymentPeriod;
-        this.approved = approved;
+    }
+
+    public Integer getStudentPaymentFormId() {
+        return studentPaymentFormId;
+    }
+
+    public void setStudentPaymentFormId(Integer studentPaymentFormId) {
+        this.studentPaymentFormId = studentPaymentFormId;
     }
 
     public String getStudentFirstName() {
@@ -56,19 +66,11 @@ public class StudentPayment implements Serializable {
         this.amount = amount;
     }
 
-    public Period getStudentPaymentPeriod() {
+    public Date getStudentPaymentPeriod() {
         return studentPaymentPeriod;
     }
 
-    public void setStudentPaymentPeriod(Period studentPaymentPeriod) {
+    public void setStudentPaymentPeriod(Date studentPaymentPeriod) {
         this.studentPaymentPeriod = studentPaymentPeriod;
-    }
-
-    public boolean isApproved() {
-        return approved;
-    }
-
-    public void setApproved(boolean approved) {
-        this.approved = approved;
     }
 }
