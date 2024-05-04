@@ -2,6 +2,7 @@ package edu.tcu.cs.superfrogschedulerbackend.student;
 
 import edu.tcu.cs.superfrogschedulerbackend.request.Request;
 import edu.tcu.cs.superfrogschedulerbackend.studenttimes.StudentTimes;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -14,8 +15,8 @@ import java.util.List;
 public class Student implements Serializable {
     @Id
     private Integer id;
-    @OneToMany(mappedBy = "student")
-    private List<StudentTimes> studentTimes;
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudentTimes> studentTimes = new ArrayList<>();
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -105,12 +106,9 @@ public class Student implements Serializable {
         completedRequests.setAssignedStudent(this);
         }
 
-    public void addStudentTimes(StudentTimes st) {
-        if (studentTimes == null) {
-            studentTimes = new ArrayList<>();
-        }
-        this.studentTimes.add(st);
-        st.setStudent(this);
+    public void addStudentTimes(StudentTimes studentTimes) {
+        this.studentTimes.add(studentTimes);
+        studentTimes.setStudent(this);
     }
 
 }
