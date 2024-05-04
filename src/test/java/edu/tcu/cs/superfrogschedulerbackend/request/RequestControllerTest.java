@@ -76,7 +76,7 @@ class RequestControllerTest {
     @Test
     void testFindRequestByIdSuccess() throws Exception {
         // Given
-        given(this.requestService.findById("123456789")).willReturn(this.requests.getFirst());
+        given(this.requestService.findById("123456789")).willReturn(this.requests.get(0));
 
         // When and Then
         this.mockMvc.perform(get("/api/v1/requests/123456789").accept(MediaType.APPLICATION_JSON))
