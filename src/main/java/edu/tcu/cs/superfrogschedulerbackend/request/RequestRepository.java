@@ -13,6 +13,6 @@ public interface RequestRepository extends JpaRepository<Request, String>, JpaSp
     //define a query method that will return completed Requests.
 
     List<Request> findByStatusCompleted(String status);
-    List<Student> findBySuperFrogStudent(Integer studentId);
+    List<Student> findBySuperFrogStudent(String studentId);
     List<Request> findByRequestNumber(Request id);
 }

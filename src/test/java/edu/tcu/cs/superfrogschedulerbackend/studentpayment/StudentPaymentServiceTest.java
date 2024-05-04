@@ -22,8 +22,6 @@ import static org.mockito.BDDMockito.given;
 @ExtendWith(MockitoExtension.class)
 class StudentPaymentServiceTest {
 
-//    @Mock
-//    StudentPaymentRepository studentPaymentRepository;
     @Mock
     RequestRepository requestRepository;
     Request request;
@@ -46,7 +44,7 @@ class StudentPaymentServiceTest {
 
         //creating a student to take the request
         Student s1 = new Student();
-        s1.setId(1);
+        s1.setId("1");
         s1.setFirstName("John");
         s1.setLastName("Smith");
         s1.setAddress("123 Main St");
@@ -82,7 +80,7 @@ class StudentPaymentServiceTest {
 //        this.requests.add(r);
 
         given(requestRepository.findByStatusCompleted("Completed").willReturn(r));
-        given(requestRepository.findBySuperFrogStudent(1).willReturn(s1));
+        given(requestRepository.findBySuperFrogStudent("1").willReturn(s1));
 
         //When - Act on the target behavior. When steps should cover the method to be tested
         studentPaymentService.groupStudentsWithCompletedRequests(requestList);
@@ -94,7 +92,7 @@ class StudentPaymentServiceTest {
     @Test
     void generateStudentPaymentForm() {
         //Given
-        given()
+
 
 
         //When
