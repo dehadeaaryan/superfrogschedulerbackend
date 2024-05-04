@@ -53,7 +53,7 @@ public class RequestService {
                     oldRequest.setOtherOutsideOrganizations(modify.getOtherOutsideOrganizations());
                     oldRequest.setEventDescription(modify.getEventDescription());
                     oldRequest.setStatus(modify.getStatus());
-                    oldRequest.setPaid(modify.getPaid());
+                    oldRequest.setPaid(modify.getPaid() != null ? modify.getPaid() : oldRequest.getPaid());
                     return this.requestRepository.save(oldRequest);
                 }).orElseThrow(() -> new ObjectNotFoundException("request", requestId));
     }
