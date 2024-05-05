@@ -29,42 +29,42 @@ public class DBDataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // Add Requests
-        Request r1 = createRequest(
-                "John",
-                "Doe",
-                "phoneNumber",
-                "eventType",
-                "eventTitle",
-                "organizationName",
-                "eventAddress",
-                false,
-                "specialInstructions",
-                "expensesAndBenefitsToSpiritTeam",
-                "otherOutsideOrganizations",
-                "eventDescription",
-                "status",
-                true,
-                false,
-                100.0
-        );
-        Request r2 = createRequest(
-                "Alice",
-                "Smith",
-                "555-1234",
-                "Birthday Party",
-                "Alice's Birthday",
-                "ABC Events",
-                "123 Main St",
-                true,
-                "Please bring balloons",
-                "Covering travel expenses",
-                "None",
-                "A birthday celebration for Alice",
-                "pending",
-                false,
-                false,
-                0.0
-        );
+//        Request r1 = createRequest(
+//                "John",
+//                "Doe",
+//                "phoneNumber",
+//                "eventType",
+//                "eventTitle",
+//                "organizationName",
+//                "eventAddress",
+//                false,
+//                "specialInstructions",
+//                "expensesAndBenefitsToSpiritTeam",
+//                "otherOutsideOrganizations",
+//                "eventDescription",
+//                "status",
+//                true,
+//                false,
+//                100.0
+//        );
+//        Request r2 = createRequest(
+//                "Alice",
+//                "Smith",
+//                "555-1234",
+//                "Birthday Party",
+//                "Alice's Birthday",
+//                "ABC Events",
+//                "123 Main St",
+//                true,
+//                "Please bring balloons",
+//                "Covering travel expenses",
+//                "None",
+//                "A birthday celebration for Alice",
+//                "pending",
+//                false,
+//                false,
+//                0.0
+//        );
 
 
         Student s1 = new Student();
@@ -130,8 +130,8 @@ public class DBDataInitializer implements CommandLineRunner {
         st15.setStudent(s3);
 
 
-        r1.setAssignedStudent(s1);
-        r2.setAssignedStudent(s1);
+//        r1.setAssignedStudent(s1);
+//        r2.setAssignedStudent(s1);
 
         studentTimesRepository.save(st1);
         studentTimesRepository.save(st2);
@@ -151,34 +151,34 @@ public class DBDataInitializer implements CommandLineRunner {
 
 
 
-        requestRepository.save(r1);
-        requestRepository.save(r2);
+//        requestRepository.save(r1);
+//        requestRepository.save(r2);
 
 
 
     }
 
-    private Request createRequest(String firstName, String lastName, String phoneNumber, String eventType, String eventTitle, String organizationName, String eventAddress, Boolean onCampus, String specialInstructions, String expensesAndBenefitsToSpiritTeam, String otherOutsideOrganizations, String eventDescription, String status, Boolean approved, Boolean paid, Double amount) {
-        Request request = new Request();
-        request.setId(UUID.randomUUID().toString());
-        request.setCustomerFirstName(firstName);
-        request.setCustomerLastName(lastName);
-        request.setPhoneNumber(phoneNumber);
-        request.setEventType(eventType);
-        request.setEventTitle(eventTitle);
-        request.setOrganizationName(organizationName);
-        request.setEventAddress(eventAddress);
-        request.setOnCampus(onCampus);
-        request.setSpecialInstructions(specialInstructions);
-        request.setExpensesAndBenefitsToSpiritTeam(expensesAndBenefitsToSpiritTeam);
-        request.setOtherOutsideOrganizations(otherOutsideOrganizations);
-        request.setEventDescription(eventDescription);
-        request.setStatus(status);
-        request.setApproved(approved);
-        request.setPaid(paid);
-        request.setAmount(amount);
-        return request;
-    }
+//    private Request createRequest(String firstName, String lastName, String phoneNumber, String eventType, String eventTitle, String organizationName, String eventAddress, Boolean onCampus, String specialInstructions, String expensesAndBenefitsToSpiritTeam, String otherOutsideOrganizations, String eventDescription, String status, Boolean approved, Boolean paid, Double amount) {
+//        Request request = new Request();
+//        request.setId(UUID.randomUUID().toString());
+//        request.setCustomerFirstName(firstName);
+//        request.setCustomerLastName(lastName);
+//        request.setPhoneNumber(phoneNumber);
+//        request.setEventType(eventType);
+//        request.setEventTitle(eventTitle);
+//        request.setOrganizationName(organizationName);
+//        request.setEventAddress(eventAddress);
+//        request.setOnCampus(onCampus);
+//        request.setSpecialInstructions(specialInstructions);
+//        request.setExpensesAndBenefitsToSpiritTeam(expensesAndBenefitsToSpiritTeam);
+//        request.setOtherOutsideOrganizations(otherOutsideOrganizations);
+//        request.setEventDescription(eventDescription);
+//        request.setStatus(status);
+//        request.setApproved(approved);
+//        request.setPaid(paid);
+//        request.setAmount(amount);
+//        return request;
+//    }
 
     private StudentTimes createStudentTimes(DayOfWeek event_day, String time, Student student) {
         StudentTimes studentTimes = new StudentTimes();
