@@ -2,6 +2,7 @@ package edu.tcu.cs.superfrogschedulerbackend.student;
 
 import edu.tcu.cs.superfrogschedulerbackend.request.Request;
 import edu.tcu.cs.superfrogschedulerbackend.studenttimes.StudentTimes;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -13,27 +14,27 @@ import java.util.List;
 @Entity
 public class Student implements Serializable {
     @Id
-    private String id;
-    @OneToMany(mappedBy = "student")
-    private List<StudentTimes> studentTimes;
+    private Integer id;
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudentTimes> studentTimes = new ArrayList<>();
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String address;
     private String email;
     private boolean international;
-    @OneToMany(mappedBy = "assignedStudent")
+    @OneToMany(mappedBy = "assignedStudent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Request> completedRequests = new ArrayList<>();
 
 
     public Student() {
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -98,19 +99,13 @@ public class Student implements Serializable {
     }
 
     public void addCompletedRequest(Request completedRequests) {
-        if (this.completedRequests == null) {
-            this.completedRequests = new ArrayList<>();
-        }
         this.completedRequests.add(completedRequests);
         completedRequests.setAssignedStudent(this);
         }
 
-    public void addStudentTimes(StudentTimes st) {
-        if (studentTimes == null) {
-            studentTimes = new ArrayList<>();
-        }
-        this.studentTimes.add(st);
-        st.setStudent(this);
+    public void addStudentTimes(StudentTimes studentTimes) {
+        this.studentTimes.add(studentTimes);
+        studentTimes.setStudent(this);
     }
 
 }

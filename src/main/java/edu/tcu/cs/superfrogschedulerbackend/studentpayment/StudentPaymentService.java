@@ -62,9 +62,7 @@ public class StudentPaymentService {
             // and create a payment form
             //////////////////////////////////////////////////////////
             //UNCOMMENT WHEN DONE:
-
-
-            //StudentPayment paymentForm = student.calculatePayment(requests, studentPaymentPeriod);
+            // StudentPayment paymentForm = student.calculatePayment(requests, studentPaymentPeriod);
             // Add the payment form to the list
             //paymentForms.add(paymentForm);
 

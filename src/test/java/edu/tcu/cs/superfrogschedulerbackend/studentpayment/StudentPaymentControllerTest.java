@@ -15,6 +15,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -74,10 +79,10 @@ class StudentPaymentControllerTest {
     }
 
     @Test
-    void testGenerateStudentPaymentFormsSuccess() {
+    void testGenerateStudentPaymentFormsSuccess() throws Exception {
         //given
         given(this.studentPaymentService.generateStudentPaymentForm(requests, 1.5)).willReturn(this.studentPayments); //not sure what will be gotten since there's no payment calculation
-;        //when and then
+        ;        //when and then
         // api end point may not have been written well because there is no pass param
         this.mockMvc.perform(get("/api/v1/studentpaymentform/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.flag").value(true))

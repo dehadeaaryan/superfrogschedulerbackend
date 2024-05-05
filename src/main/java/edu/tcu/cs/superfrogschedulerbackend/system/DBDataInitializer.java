@@ -65,8 +65,7 @@ public class DBDataInitializer implements CommandLineRunner {
                 false,
                 0.0
         );
-        requestRepository.save(r1);
-        requestRepository.save(r2);
+
 
         Student s1 = new Student();
         s1.setId(1);
@@ -89,16 +88,24 @@ public class DBDataInitializer implements CommandLineRunner {
         s3.setAddress("789 Main St");
         s3.setEmail("charlie.green@gmail.com");
 
-        StudentTimes st1 = new StudentTimes();
-        st1.setId("1");
-        st1.setEvent_day(DayOfWeek.MONDAY);
-        st1.setTime("10:00");
+        StudentTimes st1 = createStudentTimes(DayOfWeek.MONDAY, "11:00", s1);
+        StudentTimes st2 = createStudentTimes(DayOfWeek.TUESDAY, "6:00", s2);
+        //create more random studenttimes object
+        StudentTimes st3 = createStudentTimes(DayOfWeek.TUESDAY, "7:00", s3);
+        StudentTimes st4 = createStudentTimes(DayOfWeek.THURSDAY, "12:00", s1);
+        StudentTimes st5 = createStudentTimes(DayOfWeek.TUESDAY, "16:00", s2);
+        StudentTimes st6 = createStudentTimes(DayOfWeek.SATURDAY, "17:00", s3);
+        StudentTimes st7 = createStudentTimes(DayOfWeek.SUNDAY, "18:00", s1);
+        StudentTimes st8 = createStudentTimes(DayOfWeek.WEDNESDAY, "20:00", s2);
+        StudentTimes st9 = createStudentTimes(DayOfWeek.THURSDAY, "13:00", s3);
+        StudentTimes st10 = createStudentTimes(DayOfWeek.TUESDAY, "19:00", s1);
+        StudentTimes st11 = createStudentTimes(DayOfWeek.MONDAY, "14:00", s2);
+        StudentTimes st12 = createStudentTimes(DayOfWeek.FRIDAY, "16:00", s3);
+        StudentTimes st13 = createStudentTimes(DayOfWeek.WEDNESDAY, "11:00", s1);
+        StudentTimes st14 = createStudentTimes(DayOfWeek.THURSDAY, "9:00", s2);
+        StudentTimes st15 = createStudentTimes(DayOfWeek.TUESDAY, "13:00", s3);
 
-        StudentTimes st2 = new StudentTimes();
-        st2.setId("2");
-        st2.setEvent_day(DayOfWeek.FRIDAY);
-        st2.setTime("11:00");
-        // changed this
+
 
 
 
@@ -108,10 +115,44 @@ public class DBDataInitializer implements CommandLineRunner {
 
         st1.setStudent(s1);
         st2.setStudent(s2);
+        st3.setStudent(s3);
+        st4.setStudent(s1);
+        st5.setStudent(s2);
+        st6.setStudent(s3);
+        st7.setStudent(s1);
+        st8.setStudent(s2);
+        st9.setStudent(s3);
+        st10.setStudent(s1);
+        st11.setStudent(s2);
+        st12.setStudent(s3);
+        st13.setStudent(s1);
+        st14.setStudent(s2);
+        st15.setStudent(s3);
+
+
+        r1.setAssignedStudent(s1);
+        r2.setAssignedStudent(s1);
 
         studentTimesRepository.save(st1);
         studentTimesRepository.save(st2);
+        studentTimesRepository.save(st3);
+        studentTimesRepository.save(st4);
+        studentTimesRepository.save(st5);
+        studentTimesRepository.save(st6);
+        studentTimesRepository.save(st7);
+        studentTimesRepository.save(st8);
+        studentTimesRepository.save(st9);
+        studentTimesRepository.save(st10);
+        studentTimesRepository.save(st11);
+        studentTimesRepository.save(st12);
+        studentTimesRepository.save(st13);
+        studentTimesRepository.save(st14);
+        studentTimesRepository.save(st15);
 
+
+
+        requestRepository.save(r1);
+        requestRepository.save(r2);
 
 
 
@@ -137,5 +178,14 @@ public class DBDataInitializer implements CommandLineRunner {
         request.setPaid(paid);
         request.setAmount(amount);
         return request;
+    }
+
+    private StudentTimes createStudentTimes(DayOfWeek event_day, String time, Student student) {
+        StudentTimes studentTimes = new StudentTimes();
+        studentTimes.setId(UUID.randomUUID().toString());
+        studentTimes.setEvent_day(event_day);
+        studentTimes.setTime(time);
+        studentTimes.setStudent(student);
+        return studentTimes;
     }
 }
